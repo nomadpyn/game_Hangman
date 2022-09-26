@@ -32,3 +32,14 @@
 *.app
 Hangman/.vs/Hangman/v17/.suo
 *.db
+*.vsidx
+*.lock
+*.db-shm
+*.db-wal
+*.opendb
+*.ipch
+*.log
+*.tlog
+*.txt
+*.idb
+*.pdb

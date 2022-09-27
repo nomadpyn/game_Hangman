@@ -43,3 +43,5 @@ Hangman/.vs/Hangman/v17/.suo
 *.txt
 *.idb
 *.pdb
+*.recipe
+*.ilk

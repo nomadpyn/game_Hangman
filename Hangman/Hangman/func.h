@@ -10,6 +10,7 @@
 #include <ctype.h>
 #define max_length 21
 
+using namespace std;
 // переменные для количества попыток и количества угаданных слов
 int Tries{ 10 };
 int CountWords{ 0 };
@@ -60,7 +61,7 @@ void Game(char* word) {
 	copy[l] = 0;
 //	алфавит для отображения в консоли
 	char letters[52]{};
-	int i, j;
+	int i{}, j{};
 	for (i = 0; i < 26; i++) {
 		letters[j++] = i + 'A';
 		letters[j++] = ' ';

@@ -8,6 +8,7 @@
 #include <sys\locking.h>
 #include <string.h>
 #include <ctype.h>
+#include<chrono>
 #define max_length 21
 
 using namespace std;
@@ -68,12 +69,13 @@ void Game(char* word) {
 	}
 	letters[51] = 0;
 
+	int fails{ 0 };
 	char letter;
 	char* pos;
 	bool replace = false;
-
+	auto start = chrono::steady_clock::now();
 	do {
-
+		
 		system("cls");
 		cout << copy << endl << endl;
 		cout << letters << endl << endl;
@@ -110,22 +112,27 @@ void Game(char* word) {
 				replace = true;
 			}
 		}
-		if (replace == false)
+		if (replace == false) {
 			Tries--;
+			fails++;
+		}
 		else
 			replace = false;
+
+		auto end = chrono::steady_clock::now();
 // вывод при победе на экран
 		if (strcmp(word, copy) == 0)
 		{
 			system("cls");
 			cout << copy << endl << endl;
-			cout << letters << endl << endl;
-			cout << "Count of tries: " << Tries <<
-				endl << endl;
+			cout << "Count of fails: " << fails << " from 10\n";
+			cout << "Time in game " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec\n";
 			cout << "Congratulation !!!" << endl;
 			CountWords++;
 			break;
 		}
+		
+		
 	}
 	while(Tries != 0);
 	delete[] copy;
